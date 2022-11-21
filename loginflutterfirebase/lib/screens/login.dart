@@ -10,6 +10,9 @@ import '../fireAuth.dart';
 import 'package:loginflutterfirebase/screens/profile.dart';
 import 'package:loginflutterfirebase/screens/register.dart';
 
+//temp imports to test views after signin
+import 'package:loginflutterfirebase/screens/feed.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -32,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     if (user != null) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => ProfilePage(
+          builder: (context) => MainFeed(
             user: user,
           ),
         ),
@@ -50,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Firebase Authentication'),
+          title: Text("Let's get started!"),
         ),
         body: FutureBuilder(
           future: _initializeFirebase(),
@@ -141,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                                                   .pushReplacement(
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      ProfilePage(user: user),
+                                                      MainFeed(user: user),
                                                 ),
                                               );
                                             }
